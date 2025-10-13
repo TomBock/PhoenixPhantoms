@@ -1,0 +1,47 @@
+spawn_start: 9 # Ingame days
+debug: false
+upgrades:
+  1:
+    name: "Easy Bois"
+    speed: 1.0
+    health: 20
+    damage: 9 # 4.5 hearts
+    knockback: 0.4
+    size: 1
+  2:
+    name: "Medium Bois"
+    speed: 1.2
+    health: 30
+    damage: 12 # 6 hearts
+    knockback: 0.6
+    size: 2
+  3:
+    name: "Hard Bois"
+    speed: 1.5
+    health: 40
+    damage: 15 # 7.5 hearts
+    knockback: 0.8
+    size: 3
+    effects:
+      REGENERATION: 1
+    loot:
+      - default
+      - debug_stick:0.5
+      - diamond
+
+loot:
+  debug_stick:
+    ==: org.bukkit.inventory.ItemStack
+    v: 4189
+    type: DEBUG_STICK
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: '{"text":"Debug Stick","bold":true,"color":"yellow"}'
+      lore:
+        - '{"text":"_","color":"gray"}'
+  diamond:
+    ==: org.bukkit.inventory.ItemStack
+    v: 4189
+    type: DIAMOND
+    amount: 2

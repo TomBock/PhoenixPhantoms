@@ -1,0 +1,13 @@
+name: PhoenixPhantoms
+version: '1.0'
+main: com.bocktom.phoenixPhantoms.PhoenixPhantoms
+api-version: '1.21'
+commands:
+  awake:
+    description: Awaken the Phoenix Phantom
+    usage: /awake <days>
+    permission: phoenixphantoms.admin
+permissions:
+  phoenixphantoms.admin:
+    description: Allows access to all PhoenixPhantoms commands
+    default: op
