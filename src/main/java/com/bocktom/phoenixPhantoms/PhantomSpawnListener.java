@@ -8,8 +8,6 @@ import org.bukkit.Registry;
 import org.bukkit.Statistic;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.configuration.ConfigurationSection;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Phantom;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -17,15 +15,12 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.EntitySpawnEvent;
-import org.bukkit.event.world.LootGenerateEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.loot.LootTable;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 import java.util.List;
-import java.util.Map;
 
 import static com.bocktom.phoenixPhantoms.PhoenixPhantoms.plugin;
 
@@ -187,42 +182,6 @@ public class PhantomSpawnListener implements Listener {
 				continue;
 			loot.add(item.clone());
 		}
-	}
-
-	@EventHandler
-	public void OnEntityLootGenerate(LootGenerateEvent event) {
-		if(event.getEntity() == null || event.getEntity().getType() != EntityType.PHANTOM)
-			return;
-
-		Entity entity = event.getEntity();
-		if(!entity.getPersistentDataContainer().has(plugin.phantomKey, PersistentDataType.SHORT))
-			return;
-
-		short upgradeLevel = entity.getPersistentDataContainer().get(plugin.phantomKey, PersistentDataType.SHORT).shortValue();
-
-		List<String> cfgLoot = plugin.getConfig().getStringList("upgrades." + upgradeLevel + ".loot");
-		if(cfgLoot.isEmpty())
-			return;
-
-		List<ItemStack> loot = event.getLoot();
-
-		if(cfgLoot.contains("default")) {
-			// Keep default loot in
-			cfgLoot.remove("default");
-		} else {
-			// Remove all default loot
-			loot.clear();
-		}
-
-		for (String itemName : cfgLoot) {
-			ItemStack item = plugin.getConfig().getItemStack("loot." + itemName);
-			if(item == null) {
-				Bukkit.getLogger().warning("Loot item not found in config: " + itemName);
-				continue;
-			}
-			loot.add(item);
-		}
-
 	}
 
 }
