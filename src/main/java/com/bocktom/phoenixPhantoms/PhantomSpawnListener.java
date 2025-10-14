@@ -66,6 +66,10 @@ public class PhantomSpawnListener implements Listener {
 
 		int timeSinceRest = player.getStatistic(Statistic.TIME_SINCE_REST);
 		int daysSinceRest = timeSinceRest / 24000;
+
+		if(daysSinceRest < _phantomSpawnThreshold)
+			return;
+
 		int daysAboveThreshold = daysSinceRest - (_phantomSpawnThreshold / 24000);
 
 		ConfigurationSection upgrades = plugin.getConfig().getConfigurationSection("upgrades");
