@@ -12,6 +12,17 @@ Stärkere Phantome die nach längerer Zeit ohne Schlaf spawnen.
 ### Permissions
 - `phoenixphantoms.admin` - Berechtigung um den Command zu nutzen
 
+
+### Placeholders
+- `%phoenixphantom_nachtfragment%` - 0/50
+- `%phoenixphantom_nachtkristall%` - 0/25
+- `%phoenixphantom_essenzdernacht%` - 0/10
+- `%phoenixphantom_nachtfragmenttitel%` - 0/1
+- `%phoenixphantom_nachtkristalltitel%` - 0/1
+- `%phoenixphantom_essenzdernachttitel%` - 0/1
+- `%phoenixphantom_awake%` - Anzahl Tage ohne Schlaf (zb. 3.14)
+- `%rel_phoenixphantom_awake_player%` - Anzahl Tage ohne Schlaf für den ausführenden Spieler
+
 ### Configs
 
 - config.yml - Phantom Upgrades, Drops, Spawn

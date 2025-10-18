@@ -74,6 +74,8 @@ public class PhantomPlaceholderExpansion extends PlaceholderExpansion implements
 	}
 
 	private String getAwakeTime(Player player) {
-		return String.valueOf(player.getStatistic(Statistic.TIME_SINCE_REST) / 24000);
+		// Format with 2 decimal places
+		double daysAwake = player.getStatistic(Statistic.TIME_SINCE_REST) / 24000d;
+		return String.format("%.2f", daysAwake);
 	}
 }
