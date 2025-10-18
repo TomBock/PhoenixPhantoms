@@ -6,15 +6,25 @@ Stärkere Phantome die nach längerer Zeit ohne Schlaf spawnen.
 
 ### Commands
 - `/awake <days>` - Stellt die Anzahl der Tage ohne Schlaf ein für einen selber
+- `/phantom <item> <player>` - Versucht einem Spieler ein Shopitem zu verkaufen (als NPC ausführen). Die Items kommen aus der shop.yml
+- `/phantom reloadlimit` - Resettet die bisherig verkauften items (nicht Titel) für alle Spieler
 
 ### Permissions
 - `phoenixphantoms.admin` - Berechtigung um den Command zu nutzen
 
-### conig.yml
+### Configs
 
+- config.yml - Phantom Upgrades, Drops, Spawn
+- shop.yml - Shop limits, Preise & Belohnungen
+- sold_items.yml - Trackt verkaufte items pro Spieler
+- msg.yml - Spieler Nachrichten
+
+Config.yml
 ```yaml
 spawn_start: 9 # ab wieviel Minecraft-Tagen die Phantome anfangen zu spawnen
 debug: false # ob Debug-Nachrichten im Chat geschrieben werden sollen
+placeholder:
+  sold_items_color: "§6§l"
 upgrades:
   1: # Ab 1 Tag drüber
     # Alle Eigenschaften sind optional

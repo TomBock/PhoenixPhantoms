@@ -1,5 +1,7 @@
 spawn_start: 9 # Ingame days
 debug: false
+placeholder:
+  sold_items_color: "§6§l"
 upgrades:
   1:
     name: "Easy Bois"

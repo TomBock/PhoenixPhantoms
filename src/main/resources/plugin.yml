@@ -1,5 +1,5 @@
 name: PhoenixPhantoms
-version: '1.1'
+version: '1.2'
 main: com.bocktom.phoenixPhantoms.PhoenixPhantoms
 api-version: '1.21'
 commands:
@@ -7,7 +7,14 @@ commands:
     description: Awaken the Phoenix Phantom
     usage: /awake <days>
     permission: phoenixphantoms.admin
+  phantom:
+    description: Manage Phoenix Phantom Shop
+    usage: /phantom <%item% %player% | resetlimit>
+    permission: phoenixphantoms.admin
 permissions:
   phoenixphantoms.admin:
     description: Allows access to all PhoenixPhantoms commands
     default: op
+depend:
+  - Vault
+  - LuckPerms

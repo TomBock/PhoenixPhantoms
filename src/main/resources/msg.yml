@@ -1,0 +1,4 @@
+not_enough_items: "§cDu hast nicht genug %item% dabei."
+shop_limit_reached: "§cDu hast das Limit für dieses Item erreicht."
+shop_success_rubine: "§aDu hast %amount% Rubine erhalten."
+shop_success_titel: "§aTitel freigeschlatet!"

@@ -1,0 +1,30 @@
+nachtfragment:
+  limit: 50
+  anzahl: 1
+  rubine: 4
+nachtkristall:
+  limit: 25
+  anzahl: 1
+  rubine: 8
+essenzdernacht:
+  limit: 10
+  anzahl: 1
+  rubine: 20
+nachtfragmenttitel:
+  item: "nachtfragment"
+  limit: 1
+  anzahl: 64
+  rubine: 256
+  titel: "immortaltags.tag.nachtjaeger"
+nachtkristalltitel:
+  item: "nachtkristall"
+  limit: 1
+  anzahl: 64
+  rubine: 512
+  titel: "immortaltags.tag.daemmersturm"
+essenzdernachttitel:
+  item: "essenzdernacht"
+  limit: 1
+  anzahl: 64
+  rubine: 1280
+  titel: "immortaltags.tag.zwielichtprinz"
