@@ -7,7 +7,7 @@ Stärkere Phantome die nach längerer Zeit ohne Schlaf spawnen.
 ### Commands
 - `/awake <days>` - Stellt die Anzahl der Tage ohne Schlaf ein für einen selber
 - `/phantom <item> <player>` - Versucht einem Spieler ein Shopitem zu verkaufen (als NPC ausführen). Die Items kommen aus der shop.yml
-- `/phantom reloadlimit` - Resettet die bisherig verkauften items (nicht Titel) für alle Spieler
+- `/phantom resetlimit` - Resettet die bisherig verkauften items (nicht Titel) für alle Spieler
 
 ### Permissions
 - `phoenixphantoms.admin` - Berechtigung um den Command zu nutzen

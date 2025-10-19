@@ -50,16 +50,20 @@ public class PhantomSpawnListener implements Listener {
 	public void onPhantomSpawned(EntitySpawnEvent event) {
 		if(event.isCancelled() ||
 				!(event.getEntity() instanceof Phantom phantom) ||
-				phantom.getEntitySpawnReason() != CreatureSpawnEvent.SpawnReason.PATROL) {
+				phantom.getEntitySpawnReason() != CreatureSpawnEvent.SpawnReason.PATROL ||
+				phantom.getSpawningEntity() == null) {
 			return;
 		}
 
-		// Delay upgrade application to ensure target is set
-		Bukkit.getScheduler().runTaskLater(plugin, () -> applyPhantomUpgrades(phantom), 40);
+		applyPhantomUpgrades(phantom);
 	}
 
 	private void applyPhantomUpgrades(Phantom phantom) {
-		if(!(phantom.getTarget() instanceof Player player))
+		//if(!(phantom.getTarget() instanceof Player player))
+		//	return;
+
+		Player player = Bukkit.getPlayer(phantom.getSpawningEntity());
+		if(player == null)
 			return;
 
 		plugin.debug("§aSPAWNED PHANTOM FOR " + player.getName() + ", time since rest: " + (player.getStatistic(Statistic.TIME_SINCE_REST)/24000));
