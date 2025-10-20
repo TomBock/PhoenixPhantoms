@@ -21,7 +21,7 @@ Stärkere Phantome die nach längerer Zeit ohne Schlaf spawnen.
 - `%phoenixphantom_nachtkristalltitel%` - 0/1
 - `%phoenixphantom_essenzdernachttitel%` - 0/1
 - `%phoenixphantom_awake%` - Anzahl Tage ohne Schlaf (zb. 3.14)
-- `%rel_phoenixphantom_awake_player%` - Anzahl Tage ohne Schlaf für den ausführenden Spieler
+- `%phoenixphantom_awake_{player}%` - Anzahl Tage ohne Schlaf für den ausführenden Spieler
 
 ### Configs
 

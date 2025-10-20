@@ -3,6 +3,8 @@ package com.bocktom.phoenixPhantoms;
 import com.bocktom.phoenixPhantoms.util.Config;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import me.clip.placeholderapi.expansion.Relational;
+import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.Statistic;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
@@ -10,7 +12,7 @@ import org.jetbrains.annotations.Nullable;
 
 import static com.bocktom.phoenixPhantoms.PhoenixPhantoms.plugin;
 
-public class PhantomPlaceholderExpansion extends PlaceholderExpansion implements Relational {
+public class PhantomPlaceholderExpansion extends PlaceholderExpansion {
 
 	public static final String NACHTFRAGMENT = "nachtfragment";
 	public static final String NACHTKRISTALL = "nachtkristall";
@@ -46,6 +48,14 @@ public class PhantomPlaceholderExpansion extends PlaceholderExpansion implements
 			return "";
 		}
 
+		if(raw.startsWith("awake_")) {
+			String playerName = raw.substring(6);
+			OfflinePlayer owner = Bukkit.getOfflinePlayer(playerName);
+			if(!owner.hasPlayedBefore())
+				return "<not_found>";
+			return getAwakeTime(owner);
+		}
+
 		return switch (raw) {
 			case NACHTFRAGMENT -> getSoldItem(player, NACHTFRAGMENT);
 			case NACHTKRISTALL -> getSoldItem(player, NACHTKRISTALL);
@@ -58,14 +68,6 @@ public class PhantomPlaceholderExpansion extends PlaceholderExpansion implements
 		};
 	}
 
-	@Override
-	public String onPlaceholderRequest(Player one, Player two, String raw) {
-		return switch (raw) {
-			case "awake_player" -> getAwakeTime(one);
-			default -> "<not_found>";
-		};
-	}
-
 	private String getSoldItem(Player player, String key) {
 		String uuid = player.getUniqueId().toString();
 		int amount = Config.sold.get.getInt(uuid + "." + key, 0);
@@ -73,7 +75,7 @@ public class PhantomPlaceholderExpansion extends PlaceholderExpansion implements
 		return soldItemsColor + amount + "/" + max;
 	}
 
-	private String getAwakeTime(Player player) {
+	private String getAwakeTime(OfflinePlayer player) {
 		// Format with 2 decimal places
 		double daysAwake = player.getStatistic(Statistic.TIME_SINCE_REST) / 24000d;
 		return String.format("%.2f", daysAwake);
