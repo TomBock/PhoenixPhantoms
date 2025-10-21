@@ -40,9 +40,11 @@ public class PhantomSpawnListener implements Listener {
 
 		plugin.debug("§7SPAWNING PHANTOM FOR " + player.getName() + ", time since rest: " + player.getStatistic(Statistic.TIME_SINCE_REST)/24000);
 
-		int timeSinceRest = player.getStatistic(Statistic.TIME_SINCE_REST) * 24000;
+		int timeSinceRest = player.getStatistic(Statistic.TIME_SINCE_REST);
+
 		if(timeSinceRest < _phantomSpawnThreshold) {
 			event.setShouldAbortSpawn(true);
+			event.setCancelled(true);
 		}
 	}
 
