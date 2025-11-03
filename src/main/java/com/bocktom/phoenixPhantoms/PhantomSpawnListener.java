@@ -52,7 +52,7 @@ public class PhantomSpawnListener implements Listener {
 	public void onPhantomSpawned(EntitySpawnEvent event) {
 		if(event.isCancelled() ||
 				!(event.getEntity() instanceof Phantom phantom) ||
-				phantom.getEntitySpawnReason() != CreatureSpawnEvent.SpawnReason.PATROL ||
+				phantom.getEntitySpawnReason() != CreatureSpawnEvent.SpawnReason.NATURAL ||
 				phantom.getSpawningEntity() == null) {
 			return;
 		}
